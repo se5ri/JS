@@ -21,3 +21,6 @@
 ||_/=\\__|
 */
 
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+console.log('|\\_/| \n|q p|   /}\n( 0 )"""\\ \n|"^"`    |\n||_/=\\\\__|');

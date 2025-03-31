@@ -13,7 +13,7 @@
 첫째 줄에 A+B를 출력한다.
 
 예제 입력 1
-1 2
+1 2 
 
 예제 출력 1
 3
@@ -21,7 +21,7 @@
 
 const fs = require("fs");
 const fileData = fs.readFileSync(0).toString().trim().split(" ");
-console.log(fileData);
+// console.log(fileData);
 
 const a = parseInt(fileData[0]);
 const b = parseInt(fileData[1]);

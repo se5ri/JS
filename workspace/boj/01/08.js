@@ -22,3 +22,10 @@ ICPC Bangkok Regional에 참가하기 위해 수완나품 국제공항에 막 �
 1998
 */
 
+// 2541-1998=543
+
+const input = require("fs").readFileSync(0).toString();
+
+const A = parseInt(input);
+
+console.log(A - 543);

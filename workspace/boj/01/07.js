@@ -22,4 +22,7 @@ baekjoon
 예제 출력 2
 baekjoon??!
 */
+const fs = require("fs");
+const inputData = fs.readFileSync(0).toString().trim().split(" ");
 
+console.log(inputData + "??!");

@@ -9,11 +9,11 @@
      472 ... (1)
    x 385 ... (2)
   -------
-    2360 ... (3)  <- 472 × 5
-   3776  ... (4)  <- 472 × 80
-  1416   ... (5)  <- 472 × 300
- -------
-  181720 ... (6)  <- 최종 결과
+    2360 ... (3)  <- 472 × 5     
+   3776  ... (4)  <- 472 × 80   
+  1416   ... (5)  <- 472 × 300  
+ -------                      
+  181720 ... (6)  <- 최종 결과     
 
 (1)과 (2)위치에 들어갈 세 자리 자연수가 주어질 때 (3), (4), (5), (6)위치에 들어갈 값을 구하는 프로그램을 작성하시오.
 
@@ -34,3 +34,16 @@
 181720
 */
 
+const input = require("fs").readFileSync(0).toString().split("\n");
+
+let a = input[0].split("");
+let b = input[1].split("");
+
+let one = Number(input[0]) * Number(b[2]);
+let two = Number(input[0]) * Number(b[1]);
+let three = Number(input[0]) * Number(b[0]);
+
+console.log(one);
+console.log(two);
+console.log(three);
+console.log(three * 100 + two * 10 + one);
