@@ -27,3 +27,14 @@
 0
 */
 
+//윤년
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString();
+//윤년 = 4의 배수, 100의 배수X && 400 배수o
+
+const year = Number(input);
+if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+  console.log("1");
+} else {
+  console.log("0");
+}
