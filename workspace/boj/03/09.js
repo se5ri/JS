@@ -23,3 +23,12 @@
 *****
 */
 
+const input = require("fs").readFileSync(0).toString().trim();
+//console.log(fileData);
+
+let star = "";
+
+for (let i = 0; i < input; i++) {
+  star += "*";
+  console.log(star);
+}

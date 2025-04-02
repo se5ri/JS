@@ -24,3 +24,14 @@
 *****
 */
 
+const input = require("fs").readFileSync(0).toString().trim();
+//console.log(fileData);
+
+let star = "";
+const line = input;
+
+for (let i = 1; i <= line; i++) {
+  let space = " ".repeat(line - i); // 왼쪽 공백 추가
+  let stars = "*".repeat(i); // 별 추가
+  console.log(space + stars);
+}
