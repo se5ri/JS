@@ -150,3 +150,18 @@ for (let i = 2; i < input.length; i++) {
 }
 
 answer === sum ? console.log("Yes") : console.log("No");
+
+//강사님 코드
+const fs = require("fs");
+const fileData = fs.readFileSync(0).toString().trim();
+//console.log(fileData);
+
+let totalPrice = parseInt(fileData[0]); //총합
+let T = parseInt(fileData[1]); //라인개수
+
+for (let i = 1; i <= T; i++) {
+  const data = fileData[i].split(" "); // i번째 줄에서 스페이스로 나누고
+  const A = parseInt(data[0]); // i줄에서 첫번째로 받는 값이 A
+  const B = parseInt(data[1]); // i줄에서 두번째로 받는 값이 B
+  console.log(A + B); // A와 B를 더한다
+}

@@ -53,12 +53,12 @@ Python을 사용하고 있다면, input 대신 sys.stdin.readline을 사용할 �
 
 let input = require("fs").readFileSync(0).toString().split("\n");
 
-let max = Number(input[0]);
-let answer = "";
+let T = Number(input[0]);
+let sum = "";
 
-for (let i = 1; i <= max; i++) {
+for (let i = 1; i <= T; i++) {
   let num = input[i].split(" ");
-  answer += Number(num[0]) + Number(num[1]) + "\n";
+  sum += Number(num[0]) + Number(num[1]) + "\n";
 }
 
-console.log(answer);
+console.log(sum);

@@ -29,7 +29,7 @@
 7
 */
 
-const input = require("fs").readFileSync(0).toString().split("\n");
+const input = require("fs").readFileSync(0).toString().trim().split("\n");
 /* require('fs'): Node.js의 파일 시스템 모듈을 가져옴.
 readFileSync(0): 표준 입력을 동기적으로 읽음.
 이는 보통 온라인 저지(백준, 코드업)에서 입력을 한꺼번에 읽어올 때 사용.
