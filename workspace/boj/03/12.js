@@ -32,6 +32,8 @@ const fs = require("fs");
 const inputData = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 for (let i = 0; i < inputData.length; i++) {
-  let data = inputData[i].split(" ").map(Number);
-  console.log(data[0] + data[1]);
+  let data = inputData[i].split(" ");
+  let a = parseInt(data[0]);
+  let b = parseInt(data[1]);
+  console.log(a + b);
 }
