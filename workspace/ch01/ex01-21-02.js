@@ -10,7 +10,7 @@
 let star = "";
 const line = 5;
 
-for (let i = 1; i <= line; i++) {
+for (let i = 0; i < line; i++) {
   star += "*";
   console.log(star);
 }
