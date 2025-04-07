@@ -19,11 +19,37 @@
 3
 */
 
-const fs = require("fs");
+function main() {
+  const data = getData();
+  //data에서 값을 꺼내서 문제 해결하는 코드 작성
+  console.log(data.a + data.b);
+}
+
+main();
+
+// 입력값 예시:
+// 10 20
+// 30 40
+// 50 60
+
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString().trim().split(" ");
+  // console.log(fileData);
+
+  const result = new Object();
+
+  result.a = parseInt(fileData[0]); // 10
+  result.b = parseInt(fileData[1]); // 20
+
+  return result; //함수는 오직 하나의 값만 반환할 수 있다.
+}
+
+/* const fs = require("fs");
 const fileData = fs.readFileSync(0).toString().trim().split(" ");
 // console.log(fileData);
 
 const a = parseInt(fileData[0]);
 const b = parseInt(fileData[1]);
 
-console.log(a + b);
+console.log(a + b); */
