@@ -29,3 +29,22 @@ for (let i = 0; i < arr.length; i++) {
 console.log("합계", sum);
 console.log("홀수합계", oddSum);
 console.log("짝수합계", evenSum);
+
+//for-of (반복문)
+for (let elem of arr) {
+  console.log(elem);
+}
+
+//for, index를 사용해야 할 경우
+for (let i = 0; i < arr.length; i++) {
+  let elem = arr[i];
+  console.log(elem);
+}
+
+//for-in
+for (let prop in arr) {
+  console.log(prop, arr[prop]);
+}
+
+let hello = "world";
+console.log(hello);
