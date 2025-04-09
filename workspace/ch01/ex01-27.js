@@ -41,7 +41,7 @@ for (let i = 0; i < arr.length; i++) {
   console.log(elem);
 }
 
-//for-in
+//for-in을 사용할 경우
 for (let prop in arr) {
   console.log(prop, arr[prop]);
 }
