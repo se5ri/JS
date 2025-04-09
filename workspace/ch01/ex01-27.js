@@ -12,7 +12,7 @@ for (let i = 0; i < arr.length; i++) {
   console.log(i, elem); //0 10 ,1 20 ,2 30
 }
 
-// 베열 모든 요소의 합계, 홀수의 합계, 짝수의 합계
+// 베열 모든 요소의 합계, 홀수의 합계, 짝수의 합계 구하기
 let sum = 0;
 let oddSum = 0;
 let evenSum = 0;
