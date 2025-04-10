@@ -23,8 +23,8 @@
  ****
 *****
 */
-
-const input = require("fs").readFileSync(0).toString().trim();
+//서현 코딩
+/* const input = require("fs").readFileSync(0).toString().trim();
 //console.log(fileData);
 
 let star = "";
@@ -34,4 +34,31 @@ for (let i = 1; i <= line; i++) {
   let space = " ".repeat(line - i); // 왼쪽 공백 추가
   let stars = "*".repeat(i); // 별 추가
   console.log(space + stars);
+} */
+
+//강사님 코딩
+// 메인 함수 실행
+function main() {
+  const data = getData();
+  for (let i = 1; i <= data; i++) {
+    const space = " ".repeat(data - i);
+    const star = "*".repeat(i);
+    console.log(space + star);
+  }
+}
+main();
+
+function getData() {
+  const arr = require("fs").readFileSync(0).toString().trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(" ");
+
+    for (let k = 0; k < rowArr.length; k++) {
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    }
+
+    result.push(rowArr.length === 1 ? rowArr[0] : rowArr);
+  }
+  return result.length === 1 ? result[0] : result;
 }

@@ -22,8 +22,8 @@
 ****
 *****
 */
-
-const input = require("fs").readFileSync(0).toString().trim();
+//서현코딩
+/* const input = require("fs").readFileSync(0).toString().trim();
 //console.log(fileData);
 
 let star = "";
@@ -31,4 +31,35 @@ let star = "";
 for (let i = 0; i < input; i++) {
   star += "*";
   console.log(star);
+} */
+
+//강사님 코드
+// 메인 함수 실행
+function main() {
+  const data = getData();
+  // console.log(data);
+  for (let i = 1; i <= data; i++) {
+    let stars = "*".repeat(i);
+    /* let stars = " ";
+    for (let k = 1; k <= i; k++) {
+      stars += "*";
+    } */
+    console.log(stars);
+  }
+}
+main();
+
+function getData() {
+  const arr = require("fs").readFileSync(0).toString().trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(" ");
+
+    for (let k = 0; k < rowArr.length; k++) {
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    }
+
+    result.push(rowArr.length === 1 ? rowArr[0] : rowArr);
+  }
+  return result.length === 1 ? result[0] : result;
 }

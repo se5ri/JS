@@ -38,4 +38,30 @@
 예제 출력 3
 1
 */
+const fs = require("fs");
+const input = fs.readFileSync(0).toString().trim().split("\n");
+//console.log(fileData);
 
+//첫번쨰 줄에서 정수의 개수 N을 읽어옴
+const N = parseInt(input[0]);
+//두번째 줄 불러오기
+const nStr = input[1].split(" ");
+const num = [];
+//문자열 배열을 숫자배열로 변환
+for (let i = 0; i < nStr.length; i++) {
+  num.push(parseInt(nStr[i]));
+}
+
+// 세번째 줄에서 정수 v를 읽어옴
+const v = parseInt(input[2]);
+
+//v와 같은 값 비교
+let count = 0;
+for (let i = 0; i < num.length; i++) {
+  if (num[i] == v) {
+    count++;
+  }
+}
+
+//출력값
+console.log(count);

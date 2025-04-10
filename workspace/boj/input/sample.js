@@ -29,8 +29,8 @@ function getData() {
       rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]); // 데이터가 숫자인 경우 정수형으로 변환하고, 아니면 그대로 유지
     }
 
-    result.push(rowArr); // 변환된 데이터를 결과 배열에 추가
+    result.push(rowArr.length === 1 ? rowArr[0] : rowArr); // 변환된 데이터를 결과 배열에 추가
+    //result.push(rowArr)
   }
-
-  return result; // 완성된 2차원 배열 반환
+  return result.length === 1 ? result[0] : result; // 완성된 2차원 배열 반환
 }

@@ -27,8 +27,8 @@
 17
 7
 */
-
-const fs = require("fs");
+// 서현 코딩
+/* const fs = require("fs");
 const inputData = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 for (let i = 0; i < inputData.length; i++) {
@@ -36,4 +36,30 @@ for (let i = 0; i < inputData.length; i++) {
   let a = parseInt(data[0]);
   let b = parseInt(data[1]);
   console.log(a + b);
+} */
+
+//강사님 코딩
+// 메인 함수 실행
+function main() {
+  const data = getData();
+
+  for (let i = 0; i < data.length; i++) {
+    console.log(data[i][0] + data[i][1]);
+  }
+}
+main();
+
+function getData() {
+  const arr = require("fs").readFileSync(0).toString().trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(" ");
+
+    for (let k = 0; k < rowArr.length; k++) {
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    }
+
+    result.push(rowArr.length === 1 ? rowArr[0] : rowArr);
+  }
+  return result.length === 1 ? result[0] : result;
 }

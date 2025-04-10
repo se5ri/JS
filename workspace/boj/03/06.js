@@ -50,8 +50,8 @@ Python을 사용하고 있다면, input 대신 sys.stdin.readline을 사용할 �
 100
 2000
 */
-
-let input = require("fs").readFileSync(0).toString().split("\n");
+//서현코딩
+/* let input = require("fs").readFileSync(0).toString().split("\n");
 
 let T = Number(input[0]);
 let sum = "";
@@ -61,4 +61,19 @@ for (let i = 1; i <= T; i++) {
   sum += Number(num[0]) + Number(num[1]) + "\n";
 }
 
-console.log(sum);
+console.log(sum); */
+
+//강사님 코딩
+const fileData = require("fs").readFileSync(0).toString().trim().split("\n");
+
+const T = parseInt(fileData[0]);
+let sum = "";
+
+for (let i = 1; i <= T; i++) {
+  const DATA = fileData[i].split(" ");
+  const A = parseInt(DATA[0]);
+  const B = parseInt(DATA[1]);
+  sum += A + B + "\n";
+}
+
+console.log(sum.trim()); // 마지막에 생기는 줄을 없앤다.

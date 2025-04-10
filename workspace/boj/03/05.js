@@ -47,10 +47,71 @@ long int
 예제 출력 2
 long long long long long int
 */
-
-const exc = () => {
+//서현 코딩
+/* const exc = () => {
   let n = Number(require("fs").readFileSync(0).toString().trim());
   console.log("long ".repeat(n / 4) + "int");
 };
 
-exc();
+exc(); */
+
+//강사님 코딩
+/**
+ * 표준 입력장치(콘솔)에서 N줄로, 줄당 M개로 작성된 데이터를 읽어서 숫자로 변환한 후 배열로 저장하여 반환한다.
+ * @returns {[]} - 2차원 배열
+ */
+
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const row = arr[i];
+    const rowArr = row.split(" ");
+
+    for (let k = 0; k < rowArr.length; k++) {
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    }
+
+    result.push(rowArr);
+  }
+
+  return result;
+}
+
+/**
+ * getData() 에서 읽은 배열을 하나의 값으로 개별 추출하여 계산한다.
+ */
+
+// 1. for 문
+function main() {
+  const data = getData();
+
+  const bytes = data[0][0];
+  const longTimes = bytes / 4;
+
+  let result = "";
+
+  for (let i = 0; i < longTimes; i++) {
+    result += "long ";
+  }
+
+  console.log(result + "int");
+}
+
+// 2. repeat 함수
+function main() {
+  const data = getData();
+
+  const bytes = data[0][0];
+  const longTimes = bytes / 4;
+
+  let result = "long ".repeat(longTimes);
+
+  console.log(result + "int");
+}
+
+main();

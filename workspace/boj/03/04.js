@@ -136,7 +136,8 @@ No
 No
 */
 
-const fs = require("fs");
+//서현 코딩
+/* const fs = require("fs");
 const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
 const sum = +input[0];
@@ -164,4 +165,45 @@ for (let i = 1; i <= T; i++) {
   const A = parseInt(data[0]); // i줄에서 첫번째로 받는 값이 A
   const B = parseInt(data[1]); // i줄에서 두번째로 받는 값이 B
   console.log(A + B); // A와 B를 더한다
+} */
+
+//강사님 코딩
+function main() {
+  const data = getData();
+
+  /*
+  [
+    [ 260000 ],
+    [ 4 ],
+    [ 20000, 5 ],
+    [ 30000, 2 ],
+    [ 10000, 6 ],
+    [ 5000, 8 ]
+  ]
+  */
+  // console.log(data);
+
+  const totalPrice = data[0][0];
+  let sum = 0;
+  for (let i = 2; i < data.length; i++) {
+    const rowData = data[i];
+    sum += rowData[0] * rowData[1];
+  }
+
+  console.log(totalPrice === sum ? "Yes" : "No");
+}
+main();
+
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(" ");
+    for (let k = 0; k < rowArr.length; k++)
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    result.push(rowArr);
+  }
+  return result;
 }

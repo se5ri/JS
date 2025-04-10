@@ -18,7 +18,9 @@ n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성�
 예제 출력 1
 6
 */
-const input = require("fs").readFileSync(0).toString();
+
+//서현코딩
+/* const input = require("fs").readFileSync(0).toString();
 
 let num = Number(input);
 let sum = 0;
@@ -26,4 +28,32 @@ let sum = 0;
 for (let i = 1; i <= num; i++) {
   sum += i;
 }
-console.log(sum);
+console.log(sum); */
+
+//강사님 코딩
+function main() {
+  const data = getData();
+  // console.log(data);
+  const n = data[0][0];
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  console.log(sum);
+}
+main();
+
+function getData() {
+  const fs = require("fs");
+  const fileData = fs.readFileSync(0).toString();
+  const arr = fileData.trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(" ");
+    for (let k = 0; k < rowArr.length; k++)
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    result.push(rowArr);
+  }
+  return result;
+}
