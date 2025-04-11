@@ -36,3 +36,94 @@
 1 2 1 1 0
 */
 
+// 서현코드
+/* const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+
+// 첫 번째 줄에서 바구니 개수(N)와 공을 넣는 횟수(M) 파싱
+const firstLine = input[0].split(" ");
+const N = parseInt(firstLine[0]);
+const M = parseInt(firstLine[1]);
+
+// 바구니 배열 초기화 (1번부터 N번까지 사용)
+const baskets = new Array(N + 1);
+let i = 0;
+while (i <= N) {
+  baskets[i] = 0;
+  i++;
+}
+
+// M번의 공 넣기 작업 수행
+let operationCount = 0;
+while (operationCount < M) {
+  // i: 시작 바구니, j: 끝 바구니, k: 공 번호
+  const operation = input[operationCount + 1].split(" ");
+  const startBasket = parseInt(operation[0]);
+  const endBasket = parseInt(operation[1]);
+  const ballNumber = parseInt(operation[2]);
+
+  // startBasket부터 endBasket까지 공 넣기
+  let currentBasket = startBasket;
+  while (currentBasket <= endBasket) {
+    baskets[currentBasket] = ballNumber;
+    currentBasket++;
+  }
+
+  operationCount++;
+}
+
+// 결과 출력 준비 (1번부터 N번까지의 바구니)
+let result = "";
+let basketIndex = 1;
+while (basketIndex <= N) {
+  result += baskets[basketIndex];
+
+  // 마지막 바구니가 아니면 공백 추가
+  if (basketIndex < N) {
+    result += " ";
+  }
+
+  basketIndex++;
+}
+
+// 최종 결과 출력
+console.log(result);
+ */
+
+//강사님코드
+// 메인 함수 실행
+function main() {
+  const data = getData();
+  console.log(data); //[[5 4],[1 2 3],[3 4 4],[1 4 1],[2 2 2]]
+
+  const n = data[0][0]; //5
+  const result = new Array(n).fill(0); //[0,0,0,0,0]
+
+  for (let i = 0; i < data.length; i++) {
+    const rowArr = data[i]; //i=1 [1,2,3],i=2[3,4,4]...
+    const x = rowArr[0];
+    const y = rowArr[1];
+    const z = rowArr[2];
+
+    for (let k = x; k <= y; k++) {
+      result[k - 1] = z;
+    }
+  }
+  console.log(result.join(" "));
+}
+main();
+
+function getData() {
+  const arr = require("fs").readFileSync(0).toString().trim().split("\n");
+  const result = [];
+  for (let row of arr) {
+    const rowArr = row.split(" ");
+
+    for (let k = 0; k < rowArr.length; k++) {
+      rowArr[k] = isNaN(rowArr[k]) ? rowArr[k] : parseInt(rowArr[k]);
+    }
+
+    result.push(rowArr.length === 1 ? rowArr[0] : rowArr);
+  }
+  return result.length === 1 ? result[0] : result;
+}
