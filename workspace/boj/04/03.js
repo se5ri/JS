@@ -23,27 +23,25 @@ N개의 정수가 주어진다.
 7 35
 */
 
-const fs = require("fs");
-const input = fs.readFileSync(0).toString().trim().split("\n");
+let input = require("fs").readFileSync(0).toString().split("\n");
 
-// 첫 번째 줄에서 숫자의 개수 N을 정수로 변환하여 저장
-const N = parseInt(input[0]);
+let count = Number(input[0]); // 첫 번째 줄: 정수의 개수
+let strNumbers = input[1].split(" "); // 두 번째 줄: 문자열 배열로 분리
 
-// 두 번째 줄에서 숫자들을 공백 기준으로 나누어 문자열 배열로 저장
-const strNumbers = input[1].split(" ");
+let max = Number(strNumbers[0]); // 첫 번째 숫자로 초기화
+let min = Number(strNumbers[0]);
 
-// 최솟값을 구하기 위해 초기값을 무한대로 설정
-let min = Infinity;
-// 최댓값을 구하기 위해 초기값을 음의 무한대로 설정
-let max = -Infinity;
+// 반복문으로 각 문자열을 숫자로 바꾸며 비교
+for (let i = 1; i < count; i++) {
+  let num = Number(strNumbers[i]);
 
-// N개의 숫자 각각을 순회하면서 비교
-for (let i = 0; i < N; i++) {
-  const num = parseInt(strNumbers[i]); // 문자열을 정수로 변환
+  if (max < num) {
+    max = num;
+  }
 
-  if (num < min) min = num; // 현재 숫자가 최솟값보다 작으면 최솟값 갱신
-  if (num > max) max = num; // 현재 숫자가 최댓값보다 크면 최댓값 갱신
+  if (min > num) {
+    min = num;
+  }
 }
 
-// 출력
-console.log(min + " " + max);
+console.log(`${min} ${max}`);

@@ -184,3 +184,22 @@
 1
 */
 
+const fs = require("fs");
+const input = fs.readFileSync(0).toString().trim().split("\n");
+//console.log(fileData);
+
+//숫자는 0부터 위치는 1부터
+let max = Number(input[0]); // 첫 번째 숫자로 초기화
+let index = 1; // 위치는 1번째부터 시작
+
+for (let i = 1; i < 9; i++) {
+  const num = Number(input[i]);
+
+  if (num > max) {
+    max = num;
+    index = i + 1; // 몇 번째 수인지 나타내야 하므로 1부터 시작
+  }
+}
+
+console.log(max); // 최댓값 출력
+console.log(index); // 최댓값 위치 출력

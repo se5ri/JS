@@ -99,6 +99,11 @@ function main() {
   const n = data[0][0]; //5
   const result = new Array(n).fill(0); //[0,0,0,0,0]
 
+  /*  const result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(0);
+  } */
+
   for (let i = 0; i < data.length; i++) {
     const rowArr = data[i]; //i=1 [1,2,3],i=2[3,4,4]...
     const x = rowArr[0];
