@@ -6,7 +6,8 @@
     <title>쇼핑목록</title>
     <script>
       //HTML 문서 로딩 완료 (DOM 객체 생성 완료), 이미지,CSS 같은 외부 컨텐츠 로딩 완료 후에 발생하는 이벤트
-      document.addEventListener("load", function () {});
+      window.addEventListener("load", function () {});
+      console.log("load");
 
       //HTML 문서로딩 완료(DOM 객체 생성 완료) 후에 발생하는 이벤트
       document.addEventListener("DOMContentLoaded", function () {
@@ -24,9 +25,9 @@
           //첫번째 영화 찾은 다음에 nextsibling
           /*   const firstLi = movies.firstElementChild;
           const secondLi = firstLi.nextElementSibling; */
-          console.log(secondLi.firstChild.nodeValue);
+          console.log(secondLi?.firstChild.nodeValue);
           //textContent: 요소노트 내부 텍스트노드의 문자열 값을 가지고 있는 속성
-          console.log(secondLi.textContent);
+          console.log(secondLi?.textContent);
         };
 
         // 이벤트 등록 방법 3: addEventListener()
@@ -36,7 +37,11 @@
             //i=0 일 떄, <li> 두부 <li>, i=1일 때, <li>어벤져스<li>
             const firstLi = targetList[i].firstElementChild;
             //해당노드를 삭제한다
-            firstLi.remove();
+            if (firstLi) firstLi.remove();
+            // firstLi.remove();
+            // firstLi?.remove(); // 옵셔널 체이닝
+
+            firstLi?.parentNode.removeChild(firstLi);
           }
         });
       });
@@ -44,16 +49,27 @@
       //마지막에 우유 추가
       function addMilk() {
         console.log("우유 추가 예정");
-        const shoppingList = document.getElementById("purchases");
-        //innerHTML: 요소노드의 내부 HTML 코드값을 문자열로 가지고 있는 속성 (자신 제외)
+
+        const shoppingList = document.getElementById("purchases"); //<ul id="purchases" class="list">
+
+        //솔루션 1: createElement 사용
+        const newLi = document.createElement("li"); //<li>
+        const newTxt = document.createTextNode("우유"); //우유
+
+        //appendChild() : 부모를 기준으로 맨끝에 추가해라
+        newLi.appendChild(newTxt); // <li>우유</li>
+        // shoppingList.appendChild(newLi);//맨끝에 추가
+        shoppingList.insertBefore(newLi, shoppingList); // 맨 앞에 추가
+
+        /* 솔루션 2: innerHTML
+        //innerHTML: 요소노드의 내부 HTML 코드값을 문자열로 가지고 있는 속성 (자신 제외 자식들을 보여주는 것)
         // outerHTML: 본인을 포함한 내부 HTML 코드를 문자열로 가지고 있는 속성 (자신 포함)
-        console.log(shoppingList.outerHTML);
 
         // innerHTML안에 html 마크업을 구현하고 특정 버튼을 클릭하면 그 마크업 구조를 나오게 만들기
-        const newShoppingList = shoppingList.innerHTML + "<li>우유</li>";
+        //const newShoppingList = shoppingList.innerHTML + "<li>우유</li>";
         shoppingList.innerHTML = newShoppingList;
         //간단한 버전
-        // shoppingList.innerHTML += "<li>우유</li>";
+        // shoppingList.innerHTML += "<li>우유</li>";*/
       }
     </script>
   </head>
@@ -64,7 +80,7 @@
       <button type="button">두번째 영화 찾기</button>
       <!-- 이벤트 등록 방법 2 : HTML 요소의 on<event> 속성의 값을 이벤트 발생시 실행할 코드를 등록 -->
       <button type="button" onclick="addMilk();console.log('우유 추가 완료');">
-        마지막에 우유 추가
+        우유 추가
       </button>
       <button type="button">첫번째 항목 삭제</button>
     </div>
