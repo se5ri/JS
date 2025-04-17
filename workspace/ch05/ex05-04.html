@@ -24,17 +24,24 @@
         console.log("눌렀음");
       };
       btn.onclick = function () {
-        console.log("눌렀나?");
+        console.log("눌렀나?-2");
       };
 
       //이벤트 등록 방법 3: addEventListener()
       //DOM Level 2 방식 (표준))
       btn.addEventListener("click", function () {
-        console.log("누름");
+        console.log("누름-3");
       });
-      btn.addEventListener("click", function () {
-        console.log("눌러쏘");
-      });
+
+      btn.addEventListener("click", handleclick);
+
+      setTimeout(function () {
+        btn.removeEventListener("click", handleclick);
+      }, 1000 * 10);
+
+      function handleclick() {
+        console.log("눌러쏘 - 4");
+      }
     </script>
   </body>
 </html>
