@@ -22,7 +22,7 @@
               </div>
               <!-- 할일 목록이 표시되는 영역 -->
               <ul class="todolist">
-                <li data-no="1">
+                <!--  <li data-no="1">
                   <span>1</span>
                   <span><s>샘플1</s></span>
                   <button type="button">삭제</button>
@@ -36,7 +36,7 @@
                   <span>3</span>
                   <span>샘플3</span>
                   <button type="button">삭제</button>
-                </li>
+                </li> -->
               </ul>
             </li>
           </ul>
@@ -56,7 +56,7 @@
       function getTodoItemElem(item) {
         // item -> { no: 3, title: '라면', done: true } // Todo 객체
         /* DOM 객체
-      return <li>
+      return <li >
         <span>3</span>
         <span>샘플3</span>
         <button type="button">삭제</button>
@@ -101,7 +101,7 @@
         liElem.dataset.no = item.no;
         liElem.dataset.done = item.done;
 
-        // "삭제" 버튼에 클릭 이벤트 핸들러 추가
+        // 1. "삭제" 버튼에 클릭 이벤트 핸들러 추가
         deleteElem.addEventListener("click", function (event) {
           // no를 찾아서~~~ 첫번째 방법
           // const btn = event.target; // 클릭 이벤트가 발생한 요소(<button>)
@@ -113,7 +113,7 @@
           // deleteItem(item.no);
         });
 
-        // 삭제 이벤트 등록
+        // 2. 삭제 이벤트 등록
         deleteElem.setAttribute("onclick", `deleteItem(${item.no})`);
 
         // 완료/미완료 처리
@@ -135,8 +135,8 @@
         const inputElem = document.querySelector(".todoinput > input");
         if (inputElem.value.trim() !== "") {
           addItem(inputElem.value.trim()); // <input>, <select> 같은 폼의 입력 요소에는 value 속성으로 사용자가 입력/선택한 값이 저장되어 있음
-          inputElem.value = "";
-          inputElem.focus();
+          inputElem.value = ""; //지워짐
+          inputElem.focus(); //포커싱
         }
       }
 
@@ -187,7 +187,7 @@
         const targetLi = document.querySelector(
           `.todolist > li[data-no="${no}"]`
         );
-        targetLi.remove();
+        targetLi.remove(); // 결과값 나타남
       }
     </script>
   </body>

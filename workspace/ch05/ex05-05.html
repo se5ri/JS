@@ -22,7 +22,7 @@
               </div>
               <!-- 할일 목록이 표시되는 영역 -->
               <ul class="todolist">
-                <!-- <li data-no="1">
+                <!-- <li data-no="1" data-done ="ture">  ------, false: X
                 <span>1</span>
                 <span><s>샘플1</s></span>
                 <button type="button">삭제</button>
@@ -123,8 +123,8 @@
         // 완료/미완료 처리
         titleElem.addEventListener("click", function (event) {
           // no를 찾아서~~~ 첫번째 방법
-          const titleEl = event.target; // 클릭 이벤트가 발생한 요소(<button>)
-          // btn의 조상중 셀렉터와 일치하는 가장 가까운 조상
+          const titleEl = event.target;
+          // li의 조상중 셀렉터와 일치하는 가장 가까운 조상
           const liNode = titleEl.closest("li"); // <li data-no="3">
           toggleDone(liNode.dataset.no);
         });
@@ -206,17 +206,18 @@
         if (done) {
           //방법 1️⃣
           // done이 true라면 <span><s>샘플3</s></span> -> <span>샘플3</span>로 수정
-          /*  titleEl.appendChild(titleEl.firstChild.firstChild); //span.s.샘플3
-          titleEl.firstChild.remove(); //<s></s> (firstChild) 삭제 */
+          titleEl.appendChild(titleEl.firstChild.firstChild); //<span><s></s>샘플3</span>
+          titleEl.firstChild.remove(); //<s></s> (firstChild) 삭제
           //방법 2️⃣
-          const sElem = titleEl.querySelector("s");
+          /*  const sElem = titleEl.querySelector("s");
           if (sElem) {
-            titleEl.textContent = sElem.textContent;
-          }
+            titleEl.textContent = sElem.textContent;                             
+          } */
         } else {
           // done이 false라면 <span>샘플3</span> -> <span><s>샘플3</s></span>로 수정
+          const txt = titleEl.firstChild; // 샘플3
           const sElem = document.createElement("s"); // <s>
-          sElem.appendChild(titleEl.firstChild); // <s>샘플3</s>, <span></span>
+          sElem.appendChild(txt); // <s>샘플3</s>, <span>(샘플 3가 s자식으로 이동 즉 빈상태)</span>
           titleEl.appendChild(sElem); //<span><s>샘플3</s></span>
         }
         targetLi.dataset.done = !done; // 완료 여부를 토글
