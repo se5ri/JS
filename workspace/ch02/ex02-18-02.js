@@ -4,17 +4,7 @@ console.log(Math.min(100, 20, 60, 50, 70)); // 20
 
 // 지정한 배열의 요소 중 최소값을 반환
 function smallest(nums) {
-  // let min = nums[0];
-  // for (let i = 1; i < nums.length; i++) {
-  //   const num = nums[i];
-  //   if (num < min) {
-  //     min = num;
-  //   }
-  // }
-
-  //const min = Math.min(nums[0],nums[1],nums[2],...);
-  const min = Math.min.apply(this, nums);
-
+  const min = Math.min(...nums); //전개 구문
   return min;
 }
 

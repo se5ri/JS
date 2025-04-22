@@ -66,7 +66,7 @@
       */
 
         // <li>
-        const liElem = document.createElement("li");
+        const liElem = document.createElement("li"); //<li></li>
         // <span>
         const noElem = document.createElement("span");
         // <span>
@@ -204,6 +204,7 @@
         console.log(typeof done, done);
         const titleEl = targetLi.querySelector("span:last-of-type"); // <span>샘플3</span>
         if (done) {
+          // 선이 없는 상태
           //방법 1️⃣
           // done이 true라면 <span><s>샘플3</s></span> -> <span>샘플3</span>로 수정
           titleEl.appendChild(titleEl.firstChild.firstChild); //<span><s></s>샘플3</span>
@@ -211,12 +212,13 @@
           //방법 2️⃣
           /*  const sElem = titleEl.querySelector("s");
           if (sElem) {
-            titleEl.textContent = sElem.textContent;                             
+            titleEl.textContent = sElem.textContent; //<span>샘플3<span>
           } */
         } else {
+          // 선이 있는 상태
           // done이 false라면 <span>샘플3</span> -> <span><s>샘플3</s></span>로 수정
           const txt = titleEl.firstChild; // 샘플3
-          const sElem = document.createElement("s"); // <s>
+          const sElem = document.createElement("s"); // <s></s>
           sElem.appendChild(txt); // <s>샘플3</s>, <span>(샘플 3가 s자식으로 이동 즉 빈상태)</span>
           titleEl.appendChild(sElem); //<span><s>샘플3</s></span>
         }

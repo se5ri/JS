@@ -1,2 +1,3 @@
-console.log(add);
-console.dir(add);
+const getPingName = function () {
+  return this.name;
+};

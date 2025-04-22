@@ -28,10 +28,16 @@ const arr = {
    * 맨 끝에 지정한 elem 추가한다
    */
   push: function (elem) {
-    //TODO this 배운 후에
+    // this = arr
     //호출은 하지만 값이 들어오진않음 (black)
-    arr[arr.length] = elem;
-    arr.length++;
+    // this[this.length] = elem; //현재 length 위치에 요소 추가
+    // this.length++; // length 증가
+
+    //배열의 push메서드 사용
+    var tmpArr = new Array();
+    tmpArr.push.call(this, elem);
+    //TODO prototype 배운후에, 배열의 모든 메서드는 배열의 생성자 함수인 Array.prototype 속성에 정의되어 있음.
+    //Array.prototype.push(elem);
   },
 };
 
