@@ -34,10 +34,11 @@ const arr = {
     // this.length++; // length 증가
 
     //배열의 push메서드 사용
-    var tmpArr = new Array();
-    tmpArr.push.call(this, elem);
+    // const tmpArr = new Array();
+    // tmpArr.push.call(this, elem);
+
     //TODO prototype 배운후에, 배열의 모든 메서드는 배열의 생성자 함수인 Array.prototype 속성에 정의되어 있음.
-    //Array.prototype.push(elem);
+    Array.prototype.push.call(this, elem);
   },
 };
 

@@ -11,5 +11,5 @@ function add(x, y) {
 }
 
 console.log(add(10, 20)); //30, this = window
-console.log(add.call({ name: "콜핑" }, 30, 40)); // 70, this = {}
-console.log(add.call({ name: "어플핑" }, 50, 60)); // 110, this = []
+console.log(add.call({ name: "콜핑" }, 30, 40)); // 70, this = {name: "콜핑"}
+console.log(add.apply({ name: "어플핑" }, 50, 60)); // 110, this = [name: "어플핑"]

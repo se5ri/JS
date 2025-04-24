@@ -30,5 +30,5 @@ console.log(baro.age, baro.getName()); //gatName()의 this는 baro
 console.log(rara.age, rara.getName()); //gatName()의 this는 rara
 
 console.log(getPingName(), getPingName.cell(baro)); //this = window, baro
-console.log(baro, getName(), baro, getName.apply(rara)); //this = baro, rara
-console.log(rara, getName(), rara, getName.apply(globalThis)); //this = rara, window
+console.log(baro.getName(), baro.getName.apply(rara)); //this = baro, rara
+console.log(rara.getName(), rara.getName.apply(globalThis)); //this = rara, window
