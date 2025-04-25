@@ -5,10 +5,15 @@ const myObj = {
   visit: function () {
     //this = myObj
     this.count++;
-    const visit2 = function () {
-      this.count++; //this = window
+    const visitN = function (n) {
+      this.count += n; //this = myobj
     };
-    visit2();
+    visitN.call(this, 2); // count를 2명 증가
+    visitN.call(this, 2); // count를 2명 증가
+
+    const visit3 = visitN.bind(this, 3);
+    visit3(); // count를 3명 증가
+    visit3(); // count를 3명 증가
   },
 };
 
