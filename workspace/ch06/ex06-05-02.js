@@ -4,6 +4,7 @@
     // FIXME: print 함수의 타입을 정의하고 msg의 타입에 따라서 결과값 출력
     function print(msg) {
         // string일 경우
+        // 타입가드를 설정해 주어야지만 하나의 타입으로 설정된다
         if (typeof msg === "string") {
             console.log(`${msg} 글자수: ${msg.length}`);
         }

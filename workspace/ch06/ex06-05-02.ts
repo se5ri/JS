@@ -5,6 +5,7 @@
 
   function print(msg: string | number | boolean) {
     // string일 경우
+    // 타입가드를 설정해 주어야지만 하나의 타입으로 설정된다
     if (typeof msg === "string") {
       console.log(`${msg} 글자수: ${msg.length}`);
     }
