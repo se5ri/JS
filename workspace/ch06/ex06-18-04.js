@@ -1,7 +1,5 @@
 "use strict";
-//  드롭다운 리스트 생성 - 타입스크립트
-// 1. interface 생성
-// 2. 객체에 배열 타입 지정
+//드롭다운 리스트 생성 - 유니온 타입
 (() => {
     const cityList = [
         { value: "Seoul", selected: false },

@@ -1,35 +1,25 @@
-//  드롭다운 리스트 생성 - 타입스크립트
-
-// 1. interface 생성
-// 2. 객체에 배열 타입 지정
+//드롭다운 리스트 생성 - 유니온 타입
 
 (() => {
-  interface City {
-    value: string;
-    // 없어도 되니까 옵셔널 체이닝
+  interface DropdownItem {
+    value: string | number;
     selected?: boolean;
   }
-
-  interface Zipcode {
-    value: number;
-    selected?: boolean;
-  }
-
-  const cityList: City[] = [
+  const cityList: DropdownItem[] = [
     { value: "Seoul", selected: false },
     { value: "busan" },
     { value: "GwangJu", selected: true },
     //{ value: 56789 },
   ];
 
-  const zipcodeList: Zipcode[] = [
+  const zipcodeList: DropdownItem[] = [
     { value: 12345, selected: false },
     { value: 34567, selected: true },
     { value: 56789 },
   ];
 
   // FIXME: 아래 출력 결과와 같이 출력 되도록 함수 작성
-  function createDropdownList(list: City[] | Zipcode[]) {
+  function createDropdownList(list: DropdownItem[]) {
     let value;
     let options = "";
 

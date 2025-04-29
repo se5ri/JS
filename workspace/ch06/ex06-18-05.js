@@ -1,7 +1,5 @@
 "use strict";
-//  드롭다운 리스트 생성 - 타입스크립트
-// 1. interface 생성
-// 2. 객체에 배열 타입 지정
+// 드롭다운 리스트 생성 - 제네릭 인터페이스와 함수
 (() => {
     const cityList = [
         { value: "Seoul", selected: false },
@@ -24,20 +22,6 @@
         }
         return `<select>\n${options}</select>`;
     }
-    /* 출력 결과
-    <select>
-    <option selected="">seoul</option>
-    <option selected="">busan</option>
-    <option selected="selected">gwangju</option>
-    </select>
-    */
     console.log(createDropdownList(cityList));
-    /*
-    <select>
-    <option selected="">12345</option>
-    <option selected="selected">34567</option>
-    <option selected="">56789</option>
-    </select>
-    */
     console.log(createDropdownList(zipcodeList));
 })();
