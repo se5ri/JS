@@ -1,1 +1,4 @@
-console.log("Hello,JavaScript!-2");
+"use strict";
+(() => {
+    console.log("Hello,JavaScript!-2");
+})();

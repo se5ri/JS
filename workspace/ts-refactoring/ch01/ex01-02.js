@@ -1,1 +1,4 @@
-console.log("외부");
+"use strict";
+(() => {
+    console.log("외부");
+})();

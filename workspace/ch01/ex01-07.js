@@ -5,7 +5,7 @@
 var maxNum = Number.MAX_VALUE; //number로 표현 가능한 최대값
 var maxSafeNum = Number.MIN_SAFE_INTEGER; //안전한(정확한) 정수의 최대값
 
-console.log(maxNum.maxSafeNum);
+console.log(maxNum, maxSafeNum);
 
 console.log(
   maxSafeNum - 1,
