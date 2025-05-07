@@ -1,7 +1,10 @@
 .vscode
 .history
 PPT/~$*
-workspace/ch06/*.js
-workspace/ch07/*.js
+workspace/ch05/ajax/**/*.js
+workspace/ch05/bom/**/*.js
+workspace/ch06/**/*.js
+workspace/ch07/**/*.js
+workspace/ch08/**/*.js
 .github
 workspace/ts-refactoring//.js

@@ -1,20 +1,24 @@
-function plus(a: number, b: number) {
+// 합계
+export function plus(a: number, b: number) {
   console.log(`${a} + ${b} = ${a + b}`);
   return a + b;
 }
 
-function minus(a: number, b: number) {
+// 뺴기
+export function minus(a: number, b: number) {
   console.log(`${a} - ${b} = ${a - b}`);
   return a - b;
 }
 
+// 곱하기
 function multiply(a: number, b: number) {
   console.log(`${a} * ${b} = ${a * b}`);
   return a * b;
 }
 
-type Member = {
+export type Member = {
   name: string;
   age: number;
-}
+};
 
+export default { plus, minus, multiply };
